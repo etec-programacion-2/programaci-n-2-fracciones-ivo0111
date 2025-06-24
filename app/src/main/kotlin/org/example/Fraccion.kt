@@ -49,16 +49,33 @@ class Fraccion (
     }
 
     operator fun plus(otra: Fraccion): Fraccion {
-        return simplificar(Fraccion(
+        return Fraccion(
             this.numerador * otra.denominador + this.denominador * otra.numerador,
             this.denominador * otra.denominador
-            ))
+            )
     }
 
     operator fun minus(otra: Fraccion): Fraccion{
-        return simplificar(Fraccion(
+        return Fraccion(
             this.numerador * otra.denominador - this.denominador * otra.numerador,
             this.denominador * otra.denominador
-            ))
+            )
+    }
+
+    operator fun times(otra: Fraccion): Fraccion{
+        return simplificar(Fraccion(
+            this.numerador * otra.numerador,
+            this.denominador * otra.denominador
+        ))
+    }
+
+    operator fun div(otra: Fraccion): Fraccion{
+        if (otra.numerador === 0){
+            throw IllegalStateException("El numerador del divisor no puede ser cero")
+        }
+        return simplificar(Fraccion(
+            this.numerador * otra.denominador,
+            this.denominador * otra.numerador
+        ))
     }
 }

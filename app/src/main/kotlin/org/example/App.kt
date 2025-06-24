@@ -10,4 +10,6 @@ fun main() {
     println(f1.toString())
     println(f2 + f1)
     println(f2 - f1)
+    println(f2 * f1)
+    println(f2/f1)
 }
