@@ -49,20 +49,41 @@ class Fraccion (
     }
 
     operator fun plus(otra: Fraccion): Fraccion {
+        if (otra.denominador === 0){
+            throw IllegalStateException("El denominador no puede ser cero")
+        }
+        var num = this.numerador * otra.denominador + this.denominador * otra.numerador
+        var deno = this.denominador * otra.denominador
+        if (num < 0 && deno < 0){
+            num = -num
+            deno = -deno
+        }
         return Fraccion(
-            this.numerador * otra.denominador + this.denominador * otra.numerador,
-            this.denominador * otra.denominador
+            num,
+            deno
             )
     }
 
     operator fun minus(otra: Fraccion): Fraccion{
+        if (otra.denominador === 0){
+            throw IllegalStateException("El denominador no puede ser cero")
+        }
+        var num = this.numerador * otra.denominador - this.denominador * otra.numerador
+        var deno = this.denominador * otra.denominador
+        if (num < 0 && deno < 0){
+            num = -num
+            deno = -deno
+        }
         return Fraccion(
-            this.numerador * otra.denominador - this.denominador * otra.numerador,
-            this.denominador * otra.denominador
+            num,
+            deno
             )
     }
 
     operator fun times(otra: Fraccion): Fraccion{
+        if (otra.denominador === 0){
+            throw IllegalStateException("El denominador no puede ser cero")
+        }
         return simplificar(Fraccion(
             this.numerador * otra.numerador,
             this.denominador * otra.denominador
