@@ -4,5 +4,6 @@
 package org.example
 
 fun main() {
-    println("Hola app!")
+    val f1 = Fraccion(1,2)
+    println(f1.toString())
 }
