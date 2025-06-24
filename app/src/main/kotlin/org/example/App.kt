@@ -5,5 +5,9 @@ package org.example
 
 fun main() {
     val f1 = Fraccion(1,2)
+    val f2 = Fraccion(1,4)
+    f2.mostrar()
     println(f1.toString())
+    println(f2 + f1)
+    println(f2 - f1)
 }
