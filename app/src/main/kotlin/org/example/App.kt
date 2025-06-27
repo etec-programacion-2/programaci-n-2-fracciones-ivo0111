@@ -5,11 +5,20 @@ package org.example
 
 fun main() {
     val f1 = Fraccion(1,2)
-    val f2 = Fraccion(1,-4)
+    val f2 = Fraccion(1,4)
     f1.mostrar()
     println(f2.toString())
     println(f2 + f1)
     println(f2 - f1)
     println(f2 * f1)
     println(f2/f1)
+    println("Comparaciones")
+    println("f1>f2: ${f1>f2}")
+    println("f1<f2: ${f1<f2}")
+    println("f1>=f2: ${f1>=f2}")
+    println("f1<=f2: ${f1<=f2}")
+    println("f1==f2: ${f1==f2}")
+    println(f1.esMayor(f2))
+    println(f1.esMenor(f2))
+    println(f1.aDecimal())
 }

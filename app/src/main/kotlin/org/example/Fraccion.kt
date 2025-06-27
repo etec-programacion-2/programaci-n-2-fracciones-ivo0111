@@ -44,6 +44,27 @@ class Fraccion (
         return Fraccion(f.numerador/mcd, f.denominador/mcd)
     }
 
+    public fun esMayor(otra: Fraccion): Boolean {
+        val resultadoThis = this.numerador.toDouble() / this.denominador.toDouble()
+        val resultadoOtra = otra.numerador.toDouble() / otra.denominador.toDouble()
+        return resultadoThis > resultadoOtra
+    }
+
+    public fun desdeDecimal(decimal: Double): Fraccion{
+        
+    }
+
+    public fun aDecimal(): Double{
+        val resultadoThis = this.numerador.toDouble() / this.denominador.toDouble()
+        return resultadoThis
+    }
+
+    public fun esMenor(otra: Fraccion): Boolean {
+        val resultadoThis = this.numerador.toDouble() / this.denominador.toDouble()
+        val resultadoOtra = otra.numerador.toDouble() / otra.denominador.toDouble()
+        return resultadoThis < resultadoOtra
+    }
+
     override fun toString():String {
         return "${numerador}/${denominador}"
     }
@@ -98,5 +119,30 @@ class Fraccion (
             this.numerador * otra.denominador,
             this.denominador * otra.numerador
         ))
+    }
+
+    operator fun compareTo(otra: Fraccion): Int{
+        val resultadoThis = this.numerador.toDouble() / this.denominador.toDouble()
+        val resultadoOtra = otra.numerador.toDouble() / otra.denominador.toDouble()
+        return when{
+            resultadoThis > resultadoOtra -> 1
+            resultadoThis < resultadoOtra -> -1
+            else -> 0
+        }
+    }
+
+    override fun equals(other: Any?): Boolean{
+        var otra = other
+        if (other is Fraccion){
+            var simpThis = simplificar(this)
+            var simpOther = simplificar(other)
+            if (simpOther.numerador === simpThis.numerador && simpOther.denominador === simpThis.denominador){
+                return true
+            } else {
+                return false
+            }
+        } else {
+            throw Exception("La comparación de Fraccion con otra tipo esta prohibida")
+        }
     }
 }
