@@ -11,6 +11,7 @@ class Fraccion (
         }
     }
 
+
     var numerador: Int
       get() = _numerador
       set(value) { _numerador = value }
@@ -23,7 +24,7 @@ class Fraccion (
         }
 
     open fun mostrar(){
-        println(this.toString())
+        println(this.toString()) //print de la fraccion como un string
     }
 
     private fun simplificar(f:Fraccion):Fraccion{
@@ -41,32 +42,28 @@ class Fraccion (
         } else {
             mcd = a
         }
-        return Fraccion(f.numerador/mcd, f.denominador/mcd)
+        return Fraccion(f.numerador/mcd, f.denominador/mcd) // devuelve la fraccion simplificada
     }
 
     public fun esMayor(otra: Fraccion): Boolean {
         val resultadoThis = this.numerador.toDouble() / this.denominador.toDouble()
         val resultadoOtra = otra.numerador.toDouble() / otra.denominador.toDouble()
-        return resultadoThis > resultadoOtra
-    }
-
-    public fun desdeDecimal(decimal: Double): Fraccion{
-        
+        return resultadoThis > resultadoOtra // true si this es menor
     }
 
     public fun aDecimal(): Double{
         val resultadoThis = this.numerador.toDouble() / this.denominador.toDouble()
-        return resultadoThis
+        return resultadoThis // devuelve la fraccion como un decimal
     }
 
     public fun esMenor(otra: Fraccion): Boolean {
         val resultadoThis = this.numerador.toDouble() / this.denominador.toDouble()
         val resultadoOtra = otra.numerador.toDouble() / otra.denominador.toDouble()
-        return resultadoThis < resultadoOtra
+        return resultadoThis < resultadoOtra // true si this es menor
     }
 
     override fun toString():String {
-        return "${numerador}/${denominador}"
+        return "${numerador}/${denominador}" // devuelve una string que representa a la fracción
     }
 
     operator fun plus(otra: Fraccion): Fraccion {
@@ -82,7 +79,7 @@ class Fraccion (
         return Fraccion(
             num,
             deno
-            )
+            ) // devuelve una fraccion resutado de la suma
     }
 
     operator fun minus(otra: Fraccion): Fraccion{
@@ -98,7 +95,7 @@ class Fraccion (
         return Fraccion(
             num,
             deno
-            )
+            ) // devuelve una fraccion resutado de la resta
     }
 
     operator fun times(otra: Fraccion): Fraccion{
@@ -108,7 +105,7 @@ class Fraccion (
         return simplificar(Fraccion(
             this.numerador * otra.numerador,
             this.denominador * otra.denominador
-        ))
+        )) // devuelve una fraccion resutado de la multiplicación
     }
 
     operator fun div(otra: Fraccion): Fraccion{
@@ -118,16 +115,16 @@ class Fraccion (
         return simplificar(Fraccion(
             this.numerador * otra.denominador,
             this.denominador * otra.numerador
-        ))
+        )) // devuelve una fraccion resutado de la division
     }
 
     operator fun compareTo(otra: Fraccion): Int{
-        val resultadoThis = this.numerador.toDouble() / this.denominador.toDouble()
-        val resultadoOtra = otra.numerador.toDouble() / otra.denominador.toDouble()
+        val resultadoThis = this.aDecimal()
+        val resultadoOtra = otra.aDecimal()
         return when{
-            resultadoThis > resultadoOtra -> 1
-            resultadoThis < resultadoOtra -> -1
-            else -> 0
+            resultadoThis > resultadoOtra -> 1 // si es mayor
+            resultadoThis < resultadoOtra -> -1 // si es menor
+            else -> 0 // si es igual
         }
     }
 
@@ -137,12 +134,23 @@ class Fraccion (
             var simpThis = simplificar(this)
             var simpOther = simplificar(other)
             if (simpOther.numerador === simpThis.numerador && simpOther.denominador === simpThis.denominador){
-                return true
+                return true //si es igual
             } else {
-                return false
+                return false //si no es igual
             }
         } else {
             throw Exception("La comparación de Fraccion con otra tipo esta prohibida")
+        }
+    }
+
+    companion object{
+        fun desdeDecimal(decimal: Double): Fraccion{
+            var valorSinDecimales = decimal.toString()
+            val divisor = valorSinDecimales.split(".")
+            valorSinDecimales = divisor[0] + divisor[1]
+            val cantDecimales = divisor[1].length
+            val retorno = Fraccion(valorSinDecimales.toInt(),10*cantDecimales)
+            return retorno //Devuelve la Fraccion desde el decimal
         }
     }
 }
