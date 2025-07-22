@@ -6,11 +6,11 @@
 
 ## Información del Alumno
 
-**Nombre y Apellido:** [Escribir aquí tu nombre y apellido]
+**Nombre y Apellido:** Ivo Giovarruscio
 
-**Curso:** [Escribir aquí tu curso]
+**Curso:** 4°I
 
-**Fecha de entrega:** [Escribir aquí la fecha de entrega]
+**Fecha de entrega:** 22/07
 
 ---
 
@@ -43,15 +43,15 @@ El trabajo se divide en las siguientes etapas. **Al finalizar cada etapa, deber�
 4. Implementar las propiedades con getters y setters automáticos de Kotlin:
    ```kotlin
    var numerador: Int = 0
-       get() = field
-       set(value) { field = value }
+      get() = field
+      set(value) { field = value }
    
    var denominador: Int = 1
-       get() = field
-       set(value) { 
-           if (value == 0) throw IllegalArgumentException("El denominador no puede ser cero")
-           field = value 
-       }
+      get() = field
+      set(value) { 
+         if (value == 0) throw IllegalArgumentException("El denominador no puede ser cero")
+         field = value 
+      }
    ```
 5. Implementar el método `toString()` que devuelva la fracción en formato "numerador/denominador".
 6. Crear un método `mostrar()` que imprima la fracción en consola.
