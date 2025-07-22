@@ -9,7 +9,6 @@ fun main() {
     val f2 = Fraccion(1,4)
     println(Fraccion.desdeDecimal(2.3))
     f1.mostrar()
-    
     println(f2.toString())
     println(f2 + f1)
     println(f2 - f1)
@@ -26,12 +25,13 @@ fun main() {
     println(f1.aDecimal())
     
     val scanner = Scanner(System.`in`)
-    var opcion: Int
+    var opcion: Int = 10
     
     do {
         mostrarMenu()
-        opcion = scanner.nextInt()
-        
+        opcion = scanner.nextInt()  // Leer la opción del menú
+        scanner.nextLine()
+
         when (opcion) {
             1 -> realizarSuma(scanner)
             2 -> realizarResta(scanner)

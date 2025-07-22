@@ -28,27 +28,27 @@ fun leerFraccion(scanner: Scanner, mensaje: String): Fraccion {
     return Fraccion(numerador, denominador)
 }
 fun realizarSuma (scanner:Scanner) {
-    val f1 = leerFraccion(scanner, "Primera fraccioón")
+    val f1 = leerFraccion(scanner, "Primera fracción")
     val f2 = leerFraccion(scanner, "segunda fracción")
     println("Suma: ${f1+f2}")
 }
 fun realizarResta (scanner:Scanner) {
-    val f1 = leerFraccion(scanner, "Primera fraccioón")
+    val f1 = leerFraccion(scanner, "Primera fracción")
     val f2 = leerFraccion(scanner, "segunda fracción")
     println("resta: ${f1-f2}")
 }
 fun realizarDivision (scanner:Scanner) {
-    val f1 = leerFraccion(scanner, "Primera fraccioón")
+    val f1 = leerFraccion(scanner, "Primera fracción")
     val f2 = leerFraccion(scanner, "segunda fracción")
     println("División: ${f1/f2}")
 }
 fun realizarMultiplicacion (scanner:Scanner) {
-    val f1 = leerFraccion(scanner, "Primera fraccioón")
+    val f1 = leerFraccion(scanner, "Primera fracción")
     val f2 = leerFraccion(scanner, "segunda fracción")
     println("Multiplicación: ${f1*f2}")
 }
 fun realizarComparacion(scanner:Scanner){
-    val f1 = leerFraccion(scanner, "Primera fraccioón")
+    val f1 = leerFraccion(scanner, "Primera fracción")
     val f2 = leerFraccion(scanner, "segunda fracción")
     when {
         f1>f2 -> println("$f1 es mayor a $f2")
