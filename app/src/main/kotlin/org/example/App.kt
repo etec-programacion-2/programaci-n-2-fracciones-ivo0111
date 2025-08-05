@@ -25,22 +25,23 @@ fun main() {
     println(f1.aDecimal())
     
     val scanner = Scanner(System.`in`)
+    val calduladoraFracciones = CalduladoraFracciones()
     var opcion: Int = 10
     
     do {
-        mostrarMenu()
+        calduladoraFracciones.mostrarMenu()
         opcion = scanner.nextInt()  // Leer la opción del menú
         scanner.nextLine()
 
         when (opcion) {
-            1 -> realizarSuma(scanner)
-            2 -> realizarResta(scanner)
-            3 -> realizarMultiplicacion(scanner)
-            4 -> realizarDivision(scanner)
-            5 -> realizarComparacion(scanner)
-            6 -> convertirADecimal(scanner)
-            7 -> crearDesdeDecimal(scanner)
-            8 -> mostrarEjemplos()
+            1 -> calduladoraFracciones.realizarSuma(scanner)
+            2 -> calduladoraFracciones.realizarResta(scanner)
+            3 -> calduladoraFracciones.realizarMultiplicacion(scanner)
+            4 -> calduladoraFracciones.realizarDivision(scanner)
+            5 -> calduladoraFracciones.realizarComparacion(scanner)
+            6 -> calduladoraFracciones.convertirADecimal(scanner)
+            7 -> calduladoraFracciones.crearDesdeDecimal(scanner)
+            8 -> calduladoraFracciones.mostrarEjemplos()
             0 -> println("¡Hasta luego!")
             else -> println("Opción inválida. Intente de nuevo.")
         }
